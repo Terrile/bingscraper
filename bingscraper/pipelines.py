@@ -20,8 +20,9 @@ class DumpSearchResPipeline(object):
             return self.process_searchRes(item,spider)
 
     def process_searchRes(self,item,spider):
-        line = json.dumps(dict(item),ensure_ascii=False)+"\n"
+        line = json.dumps(dict(item),ensure_ascii=False)
         self.search_result.write(line)
+        self.search_result.write("\n")
 
     def spider_closed(self, spider):
         self.search_result.close()
