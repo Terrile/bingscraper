@@ -14,7 +14,7 @@ from pprint import pprint
 import urllib2
 from ..items import BingscraperItem
 import codecs
-TASK_INPUT_FILE = './task/task.txt'
+TASK_INPUT_FILE = '../task/task.txt'
 class BingSpider(scrapy.Spider):
     name = "bingspider"
     allowed_domains = ["bing.com"]
@@ -44,15 +44,10 @@ class BingSpider(scrapy.Spider):
                 url = item.xpath('.//div[@class="b_title"]/h2/a/@href')
                 caption = item.xpath('.//div[@class="b_caption"]/p')
                 search_res = BingscraperItem()
-                search_res['query'] = query.encode('utf-8')
+                search_res['query'] = query.decode('utf-8')
                 search_res['title'] = title.select('string()').extract()[0]
-                search_res['title'] = search_res['title'].encode('utf-8')
                 search_res['url'] = url.extract()[0]
-                search_res['url'] = search_res['url'].encode('utf-8')
                 search_res['caption'] = caption.select('string()').extract()[0]
-                search_res['caption'] = search_res['caption'].encode('utf-8')
                 search_res['rank'] = rank
                 rank+=1
                 yield  search_res
-        else:
-            print 'search results not found'
