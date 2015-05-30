@@ -19,7 +19,7 @@ class BingSpider(scrapy.Spider):
     name = "bingspider"
     allowed_domains = ["bing.com"]
     start_urls = []
-    target_site = 'download.csdn.net'
+    target_site = 'pan.baidu.com'
     def __init__(self):
         taskfile = codecs.open(TASK_INPUT_FILE,mode='r',encoding='utf-8')
         query_list=taskfile.readlines()
@@ -35,7 +35,7 @@ class BingSpider(scrapy.Spider):
        # print html_txt
         hxs = Selector(text=html_txt)
         items = hxs.xpath('//ol[@id="b_results"]/li[@class="b_algo"]')
-        query = response.url
+        query = urllib2.unquote(response.url)
 
         if items:
             rank = 0
