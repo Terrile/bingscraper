@@ -14,7 +14,7 @@ from pprint import pprint
 import urllib2
 from ..items import BingscraperItem
 import codecs
-TASK_INPUT_FILE = '../task/task.txt'
+TASK_INPUT_FILE = './task/task.txt'
 class BingSpider(scrapy.Spider):
     name = "bingspider"
     allowed_domains = ["bing.com"]
