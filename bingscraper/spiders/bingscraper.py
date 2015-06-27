@@ -19,7 +19,7 @@ class BingSpider(scrapy.Spider):
     name = "bingspider"
     allowed_domains = ["bing.com"]
     start_urls = []
-    target_site = 'pan.baidu.com'
+    target_site = 'vdisk.weibo.com'
     def __init__(self):
         taskfile = codecs.open(TASK_INPUT_FILE,mode='r',encoding='utf-8')
         query_list=taskfile.readlines()

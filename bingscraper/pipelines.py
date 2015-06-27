@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import json
 import codecs
+import settings
 from items import BingscraperItem
 class BingscraperPipeline(object):
     def process_item(self, item, spider):
@@ -13,7 +14,7 @@ class BingscraperPipeline(object):
 
 class DumpSearchResPipeline(object):
     def __init__(self):
-        self.search_result = codecs.open('search_result.json', 'w', encoding='utf-8')
+        self.search_result = codecs.open(settings.SEARCH_RES_FILE, 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
         if isinstance(item,BingscraperItem):
