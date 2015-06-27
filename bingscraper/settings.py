@@ -18,5 +18,6 @@ COOKIES_ENABLED = False
 
 
 SEARCH_RES_FILE = 'search_result.vdisk.json'
+TARGET_SITE = 'vdisk.weibo.com'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bingscraper (+http://www.yourdomain.com)'

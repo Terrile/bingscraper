@@ -13,13 +13,14 @@ from scrapy import log
 from pprint import pprint
 import urllib2
 from ..items import BingscraperItem
+from ..settings import TARGET_SITE
 import codecs
 TASK_INPUT_FILE = './task/task.txt'
 class BingSpider(scrapy.Spider):
     name = "bingspider"
     allowed_domains = ["bing.com"]
     start_urls = []
-    target_site = 'vdisk.weibo.com'
+    target_site = TARGET_SITE
     def __init__(self):
         taskfile = codecs.open(TASK_INPUT_FILE,mode='r',encoding='utf-8')
         query_list=taskfile.readlines()
